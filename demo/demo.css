@@ -1,0 +1,25 @@
+
+body {
+    padding-top: 70px;
+    height: 100%;
+}
+
+.btn-demo {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #888888;
+    background-color: #ffffff;
+}
+
+.btn-demo.fubu-default,
+.btn-demo.fubu-working {
+    color: #000000;
+}
+
+.btn-demo.fubu-confirm {
+    color: #FFA500;
+}
+
+.btn-demo.fubu-success {
+    color: #008000;
+}

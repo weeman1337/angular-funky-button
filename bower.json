@@ -1,0 +1,18 @@
+{
+  "name": "angular-funky-button",
+  "version": "0.9.0",
+  "description": "Funky Buttons for AngularJS",
+  "author": {
+    "name": "Michael Weimann",
+    "email": "mail@michael-weimann.eu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weeman1337/angular-funky-button.git"
+  },
+  "main": "dist/angular-funky-button.min.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": ">=1.2.0"
+  }
+}
