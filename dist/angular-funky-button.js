@@ -10,6 +10,7 @@ angular.module('angular-funky-button').provider(
         this.dismissConfirm = 5000;
         this.dismissSuccess = 2500;
         this.dismissError = 2500;
+        this.setWorkingTimeout = 100;
 
         this.classes = {
 
@@ -22,6 +23,7 @@ angular.module('angular-funky-button').provider(
                         dismissConfirm: self.dismissConfirm,
                         dismissSuccess: self.dismissSuccess,
                         dismissError: self.dismissError,
+                        setWorkingTimeout: self.setWorkingTimeout,
                         classes: self.classes
                     }
                 };
@@ -55,9 +57,8 @@ angular.module('angular-funky-button').directive(
 angular.module('angular-funky-button').controller(
     'FunkyButtonController',
     [
-        '$scope', '$element', 'funkyButton', 'FunkyButtonStateHelper', '$timeout', '$log',
-        function($scope, $element, funkyButton, FunkyButtonStateHelper, $timeout, $log) {
-            $log.debug('fubu → controller');
+        '$scope', '$element', 'funkyButton', 'FunkyButtonStateHelper', '$timeout',
+        function($scope, $element, funkyButton, FunkyButtonStateHelper, $timeout) {
 
             $scope.options = angular.copy(funkyButton.options);
 
@@ -103,6 +104,8 @@ angular.module('angular-funky-button').controller(
 
             var urDismissSuccessWatch;
             function onWorkSuccess() {
+                cancelSetWorkingTimeout();
+
                 if ($scope.options.hasSuccessElement === true) {
                     $scope.fubuStateHelper.setSuccess();
 
@@ -133,8 +136,16 @@ angular.module('angular-funky-button').controller(
                 }
             }
 
+            function cancelSetWorkingTimeout() {
+                if (setWorkingTimeoutPromise !== undefined) {
+                    $timeout.cancel(setWorkingTimeoutPromise);
+                }
+            }
+
             var urDismissErrorWatch;
             function onWorkError() {
+                cancelSetWorkingTimeout();
+
                 if ($scope.options.hasErrorElement === true) {
                     $scope.fubuStateHelper.setError();
 
@@ -194,8 +205,11 @@ angular.module('angular-funky-button').controller(
                 fubuClick();
             }
 
+            var setWorkingTimeoutPromise;
             function fubuClick() {
-                $scope.fubuStateHelper.setWorking();
+
+                setWorkingTimeoutPromise = $timeout($scope.fubuStateHelper.setWorking, $scope.options.setWorkingTimeout);
+
                 var result = $scope.fubuClick();
                 if (result === false) {
                     onWorkError();
@@ -252,8 +266,6 @@ angular.module('angular-funky-button').controller(
             }
 
             function onClick() {
-                $log.debug('fubu → onClick()');
-
                 switch ($scope.fubu.state) {
                     case 'default':
                         clickHandlerDefault();
@@ -288,8 +300,8 @@ angular.module('angular-funky-button').controller(
 angular.module('angular-funky-button').factory(
     'FunkyButtonLinker',
     [
-        '$compile', 'funkyButton', 'FunkyButtonOptionsHelper', '$parse', '$log',
-        function($compile, funkyButton, FunkyButtonOptionsHelper, $parse, $log) {
+        '$compile', 'funkyButton', 'FunkyButtonOptionsHelper', '$parse',
+        function($compile, funkyButton, FunkyButtonOptionsHelper, $parse) {
 
             function capitalizeFirstLetter(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
@@ -320,8 +332,6 @@ angular.module('angular-funky-button').factory(
             }
 
             return function(scope, element, attributes, controller, transclude) {
-                $log.debug('FunkyButtonLinker');
-
                 element.addClass('funky-button');
 
                 transclude(function(clone) {
