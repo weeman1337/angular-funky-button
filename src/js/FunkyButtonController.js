@@ -49,6 +49,8 @@ angular.module('angular-funky-button').controller(
 
             var urDismissSuccessWatch;
             function onWorkSuccess() {
+                cancelSetWorkingTimeout();
+
                 if ($scope.options.hasSuccessElement === true) {
                     $scope.fubuStateHelper.setSuccess();
 
@@ -79,8 +81,16 @@ angular.module('angular-funky-button').controller(
                 }
             }
 
+            function cancelSetWorkingTimeout() {
+                if (setWorkingTimeoutPromise !== undefined) {
+                    $timeout.cancel(setWorkingTimeoutPromise);
+                }
+            }
+
             var urDismissErrorWatch;
             function onWorkError() {
+                cancelSetWorkingTimeout();
+
                 if ($scope.options.hasErrorElement === true) {
                     $scope.fubuStateHelper.setError();
 
@@ -140,8 +150,11 @@ angular.module('angular-funky-button').controller(
                 fubuClick();
             }
 
+            var setWorkingTimeoutPromise;
             function fubuClick() {
-                $scope.fubuStateHelper.setWorking();
+
+                setWorkingTimeoutPromise = $timeout($scope.fubuStateHelper.setWorking, $scope.options.setWorkingTimeout);
+
                 var result = $scope.fubuClick();
                 if (result === false) {
                     onWorkError();

@@ -10,6 +10,7 @@ angular.module('angular-funky-button').provider(
         this.dismissConfirm = 5000;
         this.dismissSuccess = 2500;
         this.dismissError = 2500;
+        this.setWorkingTimeout = 100;
 
         this.classes = {
 
@@ -22,6 +23,7 @@ angular.module('angular-funky-button').provider(
                         dismissConfirm: self.dismissConfirm,
                         dismissSuccess: self.dismissSuccess,
                         dismissError: self.dismissError,
+                        setWorkingTimeout: self.setWorkingTimeout,
                         classes: self.classes
                     }
                 };
