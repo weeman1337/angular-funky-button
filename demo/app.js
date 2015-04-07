@@ -26,6 +26,14 @@ app.controller(
                 return deferred.promise;
             };
 
+            $scope.workShort = function() {
+                var deferred = $q.defer();
+                $timeout(function() {
+                    deferred.resolve();
+                }, 75);
+                return deferred.promise;
+            };
+
             $scope.workWithoutPromise = function() {
                 return true;
             };
