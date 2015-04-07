@@ -2,8 +2,8 @@
 angular.module('angular-funky-button').factory(
     'FunkyButtonLinker',
     [
-        '$compile', 'funkyButton', 'FunkyButtonOptionsHelper', '$parse', '$log',
-        function($compile, funkyButton, FunkyButtonOptionsHelper, $parse, $log) {
+        '$compile', 'funkyButton', 'FunkyButtonOptionsHelper', '$parse',
+        function($compile, funkyButton, FunkyButtonOptionsHelper, $parse) {
 
             function capitalizeFirstLetter(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,8 +34,6 @@ angular.module('angular-funky-button').factory(
             }
 
             return function(scope, element, attributes, controller, transclude) {
-                $log.debug('FunkyButtonLinker');
-
                 element.addClass('funky-button');
 
                 transclude(function(clone) {

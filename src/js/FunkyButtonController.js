@@ -2,9 +2,8 @@
 angular.module('angular-funky-button').controller(
     'FunkyButtonController',
     [
-        '$scope', '$element', 'funkyButton', 'FunkyButtonStateHelper', '$timeout', '$log',
-        function($scope, $element, funkyButton, FunkyButtonStateHelper, $timeout, $log) {
-            $log.debug('fubu → controller');
+        '$scope', '$element', 'funkyButton', 'FunkyButtonStateHelper', '$timeout',
+        function($scope, $element, funkyButton, FunkyButtonStateHelper, $timeout) {
 
             $scope.options = angular.copy(funkyButton.options);
 
@@ -199,8 +198,6 @@ angular.module('angular-funky-button').controller(
             }
 
             function onClick() {
-                $log.debug('fubu → onClick()');
-
                 switch ($scope.fubu.state) {
                     case 'default':
                         clickHandlerDefault();
