@@ -1,19 +1,19 @@
 {
-  "name": "funky-button-ng-demo",
+  "name": "angular-funky-button-demo",
   "version": "1.0.0",
   "private": true,
   "authors": [
     "Michael Weimann <mail@michael-weimann.eu>"
   ],
-  "description": "Funky Buttons for AngularJS demo. http://michael-weimann.eu/funky-button-ng",
+  "description": "Funky Buttons for AngularJS demo. http://michael-weimann.eu/angular-funky-button",
   "license": "MIT",
   "ignore": [
     "bower_components"
   ],
   "dependencies": {
-    "angular": "~1.3.15",
+    "angular": "~1.4.8",
     "angular-funky-button": "~0.9.0",
     "bootstrap": "~3.3.4",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.4.0"
   }
 }
