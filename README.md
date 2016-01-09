@@ -14,4 +14,4 @@ angular-funky-button provides stateful button functions:
 
 ## Demo and docs
 
-http://michael-weimann.eu/angular-funky-button/demo
+https://michael-weimann.eu/angular-funky-button/demo/
