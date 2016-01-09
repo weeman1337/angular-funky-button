@@ -2,7 +2,7 @@
     'use strict';
 
     /**
-     * @desc "angular-funky-button" module definition.
+     * "angular-funky-button" module definition.
      */
     angular.module('angular-funky-button', []);
 
