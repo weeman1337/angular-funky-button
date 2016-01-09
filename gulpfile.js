@@ -1,6 +1,9 @@
-var gulp = require('gulp');
+
+'use strict';
 
 var concat = require('gulp-concat');
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
@@ -37,6 +40,15 @@ gulp.task('js', function() {
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('dist'));
+});
+
+/**
+ * JSHints the source code.
+ */
+gulp.task('lint', function() {
+    return gulp.src('./src/js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 /**
