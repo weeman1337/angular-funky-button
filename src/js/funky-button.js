@@ -1,33 +1,39 @@
+(function() {
+    'use strict';
 
-angular.module('angular-funky-button', []);
+    /**
+     * @desc "angular-funky-button" module definition.
+     */
+    angular.module('angular-funky-button', []);
 
-angular.module('angular-funky-button').provider(
-    'funkyButton',
-    function FunkyButtonProvider() {
+    angular.module('angular-funky-button').provider(
+        'funkyButton',
+        function FunkyButtonProvider() {
 
-        var self = this;
+            var self = this;
 
-        this.dismissConfirm = 5000;
-        this.dismissSuccess = 2500;
-        this.dismissError = 2500;
-        this.setWorkingTimeout = 100;
+            this.dismissConfirm = 5000;
+            this.dismissSuccess = 2500;
+            this.dismissError = 2500;
+            this.setWorkingTimeout = 100;
 
-        this.classes = {
+            this.classes = {
 
-        };
+            };
 
-        this.$get = [
-            function() {
-                return {
-                    options: {
-                        dismissConfirm: self.dismissConfirm,
-                        dismissSuccess: self.dismissSuccess,
-                        dismissError: self.dismissError,
-                        setWorkingTimeout: self.setWorkingTimeout,
-                        classes: self.classes
-                    }
-                };
-            }
-        ];
-    }
-);
+            this.$get = [
+                function() {
+                    return {
+                        options: {
+                            dismissConfirm: self.dismissConfirm,
+                            dismissSuccess: self.dismissSuccess,
+                            dismissError: self.dismissError,
+                            setWorkingTimeout: self.setWorkingTimeout,
+                            classes: self.classes
+                        }
+                    };
+                }
+            ];
+        }
+    );
+})();
