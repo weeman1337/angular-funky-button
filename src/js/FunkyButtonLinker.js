@@ -5,19 +5,18 @@
         .module('angular-funky-button')
         .factory('FunkyButtonLinker', FunkyButtonLinker);
 
-    FunkyButtonLinker.$inject = ['$compile', 'funkyButton', 'FunkyButtonOptionsHelper', '$parse'];
+    FunkyButtonLinker.$inject = ['$compile', 'funkyButton', '$parse'];
 
     /**
      * Contains all DOM manipulations of the funky-button directive.
      *
      * @param $compile
      * @param funkyButton
-     * @param FunkyButtonOptionsHelper
      * @param $parse
      * @returns {Function}
      * @constructor
      */
-    function FunkyButtonLinker($compile, funkyButton, FunkyButtonOptionsHelper, $parse) {
+    function FunkyButtonLinker($compile, funkyButton, $parse) {
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -68,8 +67,7 @@
                 });
             });
 
-            scope.options = FunkyButtonOptionsHelper.mergeOptions(funkyButton.options, scope.options);
-
+            angular.merge(scope.options, funkyButton.options);
             scope.fubuStateHelper.setDefault();
 
             element.bind('click', scope.rawClickHandler);

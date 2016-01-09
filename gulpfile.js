@@ -30,8 +30,7 @@ gulp.task('js', function() {
             'src/js/funkyButton.js',
             'src/js/FunkyButtonController.js',
             'src/js/FunkyButtonLinker.js',
-            'src/js/FunkyButtonStateHelper.js',
-            'src/js/FunkyButtonOptionsHelper.js'
+            'src/js/FunkyButtonStateHelper.js'
         ])
         .pipe(concat('angular-funky-button.js'))
         .pipe(gulp.dest('dist'))
