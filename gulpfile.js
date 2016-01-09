@@ -5,7 +5,22 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
-gulp.task('default', function() {
+/**
+ * Minifies the CSS and writes it to "dist".
+ */
+gulp.task('css', function() {
+    gulp
+        .src([
+            'src/css/funky-button.css'
+        ])
+        .pipe(concat('angular-funky-button.css'))
+        .pipe(gulp.dest('dist'));
+});
+
+/**
+ * Concatenates and minifies the js files and writes it to "dist".
+ */
+gulp.task('js', function() {
     gulp
         .src([
             'src/js/funky-button.js',
@@ -22,11 +37,13 @@ gulp.task('default', function() {
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('dist'));
-
-    gulp
-        .src([
-            'src/css/funky-button.css'
-        ])
-        .pipe(concat('angular-funky-button.css'))
-        .pipe(gulp.dest('dist'));
 });
+
+/**
+ *  Builds a dist version.
+ *  See "js" and "css" tasks.
+ */
+gulp.task('dist', [
+    'js',
+    'css'
+]);
