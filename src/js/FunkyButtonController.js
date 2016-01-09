@@ -160,12 +160,10 @@
                     var result = $scope.fubuClick();
                     if (result === false) {
                         onWorkError();
-                    } else if (result === true) {
-                        onWorkSuccess();
-                    } else if (result.then !== undefined && typeof result.then === 'function') {
+                    } else if (typeof result === 'object' && result.then !== undefined && typeof result.then === 'function') {
                         result.then(onWorkSuccess, onWorkError);
                     } else {
-                        throw new Error('fubu-click function must return true, false or a promise');
+                        onWorkSuccess();
                     }
                 }
 
