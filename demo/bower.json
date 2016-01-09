@@ -13,6 +13,7 @@
   "dependencies": {
     "angular": "~1.4.8",
     "angular-funky-button": "~0.9.0",
+    "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.4",
     "fontawesome": "~4.4.0"
   }

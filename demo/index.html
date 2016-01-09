@@ -2,168 +2,55 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Funky buttons</title>
+        <title>angular-funky-button</title>
 
-        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/angular-funky-button/dist/angular-funky-button.css">
-        <link rel="stylesheet" href="demo.css">
+        <link rel="stylesheet" href="style/demo.css">
 
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
-        <script type="text/javascript" src="bower_components/angular-funky-button/dist/angular-funky-button.js"></script>
+        <!-- demo dist version -->
+        <!--<script type="text/javascript" src="bower_components/angular-funky-button/dist/angular-funky-button.js"></script>-->
 
-        <script type="text/javascript" src="app.js"></script>
+        <!-- dev version -->
+        <script type="text/javascript" src="../src/js/funky-button.js"></script>
+        <script type="text/javascript" src="../src/js/funkyButton.js"></script>
+        <script type="text/javascript" src="../src/js/FunkyButtonController.js"></script>
+        <script type="text/javascript" src="../src/js/FunkyButtonLinker.js"></script>
+        <script type="text/javascript" src="../src/js/FunkyButtonOptionsHelper.js"></script>
+        <script type="text/javascript" src="../src/js/FunkyButtonStateHelper.js"></script>
+
+        <script type="text/javascript" src="js/demo.js"></script>
+        <script type="text/javascript" src="js/routes.js"></script>
+        <script type="text/javascript" src="js/Demo.controller.js"></script>
     </head>
     <body ng-controller="DemoController">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Funky Button</a>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="demo">angular-funky-button v1.0.0</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="active"><a ui-sref="demo">Demo</a></li>
+                        <li ui-sref-active="active"><a ui-sref="docs">Docs</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com/weeman1337/angular-funky-button" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Demos</a></li>
-                    <!--<li><a href="#">Docs</a></li>-->
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with confirmation</b>
-                            </p>
-                            <div class="text-center">
-                                <button class="btn" funky-button fubu-click="work()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button without promise</b>
-                            </p>
-                            <div class="text-center">
-                                <button class="btn" funky-button fubu-click="workWithoutPromise()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with error</b>
-                            </p>
-                            <div class="text-center">
-                                <button class="btn" funky-button fubu-click="workError()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                    <span fubu-error fubu-class="btn-danger"><i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with error II</b>
-                            </p>
-                            <div class="text-center">
-                                <button class="btn" funky-button fubu-click="workError()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                    <span fubu-error fubu-dismiss="0" fubu-class="btn-danger"><i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with error III</b>
-                            </p>
-                            <p class="text-center">
-                                <button class="btn" funky-button fubu-click="workError()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                    <span fubu-error fubu-dismiss="dismissError" fubu-class="btn-danger"><i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail</span>
-                                </button>
-                            </p>
-                            <p class="text-center" ng-show="error">
-                                <button class="btn btn-default btn-sm" ng-click="handlers.dismissError()">dismiss error</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with short action</b>
-                            </p>
-                            <p class="text-center">
-                                <button class="btn" funky-button fubu-click="workShort()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p>
-                                <b>Button with short action II</b>
-                            </p>
-                            <p class="text-center">
-                                <button class="btn" funky-button fubu-click="workShort()">
-                                    <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
-                                    <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
-                                    <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ui-view></div>
     </body>
 </html>

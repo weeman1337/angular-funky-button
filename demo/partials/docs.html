@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Quick start guide</h2>
+
+    <h3>1. Install angular-funky-button via Bower</h3>
+    <p>
+        The recommended way to install angular-funky-button is to use the Bower package:
+    </p>
+    <pre>bower install --save angular-funky-button</pre>
+
+    <h3>2. Include js/css files</h3>
+    <p>
+        Include the angular-funky-button files:
+    </p>
+    <ul>
+        <li>required: <code>angular-funky-button.js</code> - the directive itself</li>
+        <li>optional: <code>angular-funky-button.css</code> - some common stylings</li>
+    </ul>
+<pre>...
+&lt;head>
+    ...
+    &lt;link rel="stylesheet" href="bower_components/angular-funky-button/dist/angular-funky-button.css">
+    &lt;script type="text/javascript" src="bower_components/angular-funky-button/dist/angular-funky-button.min.js">&lt;/script>
+    ...
+&lt;/head>
+...</pre>
+
+    <h3>3. Your first button</h3>
+    <button funky-button fubu-click="angular.noop()">
+        <span fubu-default>click me</span>
+        <span fubu-confirm>are you sure?</span>
+        <span fubu-success>done!</span>
+    </button>
+    <br><br>
+<pre>&lt;button funky-button fubu-click="angular.noop()">
+    &lt;span fubu-default>click me&lt;/span>
+    &lt;span fubu-confirm>are you sure?&lt;/span>
+    &lt;span fubu-success>done!&lt;/span>
+&lt;/button></pre>
+
+    <h3>4. Explore the demos to find out what's possible</h3>
+    <a ui-sref="demo">Show the demos</a>
+</div>

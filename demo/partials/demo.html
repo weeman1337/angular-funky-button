@@ -1,0 +1,205 @@
+<div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with confirmation</b>
+                    </p>
+                    <ul>
+                        <li>Asks the user for a confirmation</li>
+                        <li>Shows a working and success message</li>
+                        <li>The working promise resolves to <code>true</code></li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="btn" funky-button fubu-click="work()">
+                            <span fubu-default fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-envelope-o"></i> send mail
+                            </span>
+                            <span fubu-confirm fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-question"></i> are you sure?
+                            </span>
+                            <span fubu-working fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail
+                            </span>
+                            <span fubu-success fubu-class="btn-success">
+                                <i class="fa fa-fw fa-check"></i> mail sent
+                            </span>
+                        </button>
+                    </div>
+                    <h5>Code</h5>
+<pre>&lt;button class="btn" funky-button fubu-click="work()">
+    &lt;span fubu-default fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-envelope-o">&lt;/i> send mail
+    &lt;/span>
+    &lt;span fubu-confirm fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-question">&lt;/i> are you sure?
+    &lt;/span>
+    &lt;span fubu-working fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-spin fa-circle-o-notch">&lt;/i> sending mail
+    &lt;/span>
+    &lt;span fubu-success fubu-class="btn-success">
+        &lt;i class="fa fa-fw fa-check">&lt;/i> mail sent
+    &lt;/span>
+&lt;/button></pre>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button without promise</b>
+                    </p>
+                    <div class="text-center">
+                        <button class="btn" funky-button fubu-click="workWithoutPromise()">
+                            <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
+                            <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
+                            <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
+                            <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with error</b>
+                    </p>
+                    <div class="text-center">
+                        <button class="btn" funky-button fubu-click="workError()">
+                            <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
+                            <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
+                            <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
+                            <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
+                            <span fubu-error fubu-class="btn-danger"><i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with error - click to continue</b>
+                    </p>
+                    <ul>
+                        <li>The action fails → displays an error message</li>
+                        <li>The user must click the error message to continue</li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="btn" funky-button fubu-click="workError()">
+                            <span fubu-default fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-envelope-o"></i> send mail
+                            </span>
+                            <span fubu-working fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail
+                            </span>
+                            <span fubu-success fubu-class="btn-success">
+                                <i class="fa fa-fw fa-check"></i> mail sent
+                            </span>
+                            <span fubu-error fubu-dismiss="0" fubu-class="btn-danger">
+                                <i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail
+                            </span>
+                        </button>
+                    </div>
+                    <h5>Code</h5>
+                    <p>
+                        Set <code>fubu-dismiss="0"</code> on the <code>fubu-error</code> element to disable the time limit for error messages.
+                    </p>
+<pre>&lt;button class="btn" funky-button fubu-click="workError()">
+    &lt;span fubu-default fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-envelope-o">&lt;/i> send mail
+    &lt;/span>
+    &lt;span fubu-working fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-spin fa-circle-o-notch">&lt;/i> sending mail
+    &lt;/span>
+    &lt;span fubu-success fubu-class="btn-success">
+        &lt;i class="fa fa-fw fa-check">&lt;/i> mail sent
+    &lt;/span>
+    &lt;span fubu-error fubu-dismiss="0" fubu-class="btn-danger">
+        &lt;i class="fa fa-fw fa-exclamation-triangle">&lt;/i> can't send mail
+    &lt;/span>
+&lt;/button></pre>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with error - programmatically dismiss error</b>
+                    </p>
+                    <ul>
+                        <li>The action fails → displays an error message</li>
+                        <li>The error will be dismissed by changing a flag</li>
+                    </ul>
+                    <p class="text-center">
+                        <button class="btn" funky-button fubu-click="workError()">
+                            <span fubu-default fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-envelope-o"></i> send mail
+                            </span>
+                            <span fubu-working fubu-class="btn-primary">
+                                <i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail
+                            </span>
+                            <span fubu-success fubu-class="btn-success">
+                                <i class="fa fa-fw fa-check"></i> mail sent
+                            </span>
+                            <span fubu-error fubu-dismiss="dismissError" fubu-class="btn-danger">
+                                <i class="fa fa-fw fa-exclamation-triangle"></i> can't send mail
+                            </span>
+                        </button>
+                    </p>
+                    <p class="text-center" ng-show="error">
+                        <button class="btn btn-default btn-sm" ng-click="handlers.dismissError()">dismiss error</button>
+                    </p>
+
+                    <h5>Code</h5>
+                    <p>
+                        In this example the error message is dismissed when "dismissError" changes to true.
+                        Set <code>fubu-dismiss="dismissError"</code> on the <code>fubu-error</code> element.
+                    </p>
+<pre>&lt;button class="btn" funky-button fubu-click="workError()">
+    &lt;span fubu-default fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-envelope-o">&lt;/i> send mail
+    &lt;/span>
+    &lt;span fubu-working fubu-class="btn-primary">
+        &lt;i class="fa fa-fw fa-spin fa-circle-o-notch">&lt;/i> sending mail
+    &lt;/span>
+    &lt;span fubu-success fubu-class="btn-success">
+        &lt;i class="fa fa-fw fa-check">&lt;/i> mail sent
+    &lt;/span>
+    &lt;span fubu-error fubu-dismiss="dismissError" fubu-class="btn-danger">
+        &lt;i class="fa fa-fw fa-exclamation-triangle">&lt;/i> can't send mail
+    &lt;/span>
+&lt;/button></pre>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with quick action</b>
+                    </p>
+                    <ul>
+                        <li>When the executed function finishes fast (100ms per default), the working message won't show up</li>
+                    </ul>
+                    <p class="text-center">
+                        <button class="btn" funky-button fubu-click="workShort()">
+                            <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
+                            <span fubu-confirm fubu-class="btn-primary"><i class="fa fa-fw fa-question"></i> are you sure?</span>
+                            <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
+                            <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <b>Button with quick action - no confirmation</b>
+                    </p>
+                    <p class="text-center">
+                        <button class="btn" funky-button fubu-click="workShort()">
+                            <span fubu-default fubu-class="btn-primary"><i class="fa fa-fw fa-envelope-o"></i> send mail</span>
+                            <span fubu-working fubu-class="btn-primary"><i class="fa fa-fw fa-spin fa-circle-o-notch"></i> sending mail</span>
+                            <span fubu-success fubu-class="btn-success"><i class="fa fa-fw fa-check"></i> mail sent</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
