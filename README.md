@@ -2,11 +2,16 @@
 
 Funky buttons for AngularJS
 
-## Changelog
+![angular-funky-button](https://michael-weimann.eu/angular-funky-button/demo/img/fubu.png)
 
-* 0.9.1
-  * There is now a short timeout before showing the working state (to prevent flickering if the action only takes a short time)
-  * The demo is now working
+## Summary
 
-* 0.9
-  * Initial release
+angular-funky-button provides stateful button functions:
+- Let the user confirm an action
+- Display a progress message
+- Display an error/success message
+- Change CSS classes depending on the state
+
+## Demo and docs
+
+http://michael-weimann.eu/angular-funky-button/demo
