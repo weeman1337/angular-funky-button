@@ -2,7 +2,7 @@
 
 Funky buttons for AngularJS
 
-![angular-funky-button](https://michael-weimann.eu/angular-funky-button/demo/img/fubu.png)
+![angular-funky-button](http://michael-weimann.eu/angular-funky-button/demo/img/fubu.png)
 
 ## Summary
 
